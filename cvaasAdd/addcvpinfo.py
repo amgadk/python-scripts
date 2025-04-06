@@ -1,5 +1,5 @@
 import yaml, getpass # Import PyYAML and getpass
-from netmiko import ConnectHandler # import ConnectHandler from the netmiko module
+from netmiko import ConnectHandler # Make sure netmiko is installed (pip install netmiko)import ConnectHandler from the netmiko module
 
 
 with open('devices.yaml') as device_yaml: 
@@ -35,7 +35,7 @@ for hostname, ip in devices.items():
                 net_connect.send_config_set(['daemon TerminAttr','exec /usr/bin/TerminAttr -cvaddr=apiserver.arista.io:443 -cvcompression=gzip -taillogs -cvauth=token-secure,/tmp/token -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent','no shutdown'])
                 # Inform user of completion on the device
                 print("Finished Configuring %s." % hostname)
-                i += 1
+                #i += 1
                 print("Reloading......")
                 net_connect.send_config_set(['write','reload force'])
             # If connection has an error, tell the user
