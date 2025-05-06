@@ -37,7 +37,8 @@ for hostname, ip in devices.items():
                 print("Finished Configuring %s." % hostname)
                 #i += 1
                 print("Reloading......")
-                net_connect.send_config_set(['write','reload force'])
+                # Warning this is a reload step
+                # net_connect.send_config_set(['write','reload force'])
             # If connection has an error, tell the user
             except:
                 print("*****Error connecting to %s*****" % hostname)
